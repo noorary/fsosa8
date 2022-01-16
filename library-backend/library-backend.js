@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const Book = require('./models/books')
 const Author = require('./models/authors')
 const User = require('./models/users')
+const jwt = require('jsonwebtoken')
 
 const MONGODB_URI = process.env.MONGODB_URI 
 const JWT_SECRET = process.env.SECRET
@@ -192,7 +193,7 @@ const resolvers = {
     },
 
     createUser: (root, args) => {
-      const user = new User({ username: args.username })
+      const user = new User({ username: args.username, favoriteGenre: args.favoriteGenre })
   
       return user.save()
         .catch(error => {

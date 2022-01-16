@@ -6,6 +6,7 @@ import { ALL_AUTHORS, EDIT_AUTHOR } from '../queries'
 
 const Authors = ({ show }) => {
   const result = useQuery(ALL_AUTHORS)
+  console.log(result)
   const [name, setName] = useState('')
   const [born, setBorn] = useState('')
 
